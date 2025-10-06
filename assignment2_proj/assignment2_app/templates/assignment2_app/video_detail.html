@@ -1,0 +1,36 @@
+{% extends 'assignment2_app/base.html' %}
+
+{% block title %}{{ video.movie_title }} - Video Store Management{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h2>{{ video.movie_title }}</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Movie ID:</strong> {{ video.movie_id }}</p>
+                        <p><strong>Director:</strong> {{ video.director_name }}</p>
+                        <p><strong>Genre:</strong> {{ video.movie_genre }}</p>
+                        <p><strong>Release Year:</strong> {{ video.release_year }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Actor 1:</strong> {{ video.actor1_name }}</p>
+                        <p><strong>Actor 2:</strong> {{ video.actor2_name }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group" role="group">
+                    <a href="{% url 'video_list' %}" class="btn btn-secondary">Back to List</a>
+                    <a href="{% url 'video_update' video.pk %}" class="btn btn-primary">Edit Video</a>
+                    <a href="{% url 'video_delete' video.pk %}" class="btn btn-danger">Delete Video</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

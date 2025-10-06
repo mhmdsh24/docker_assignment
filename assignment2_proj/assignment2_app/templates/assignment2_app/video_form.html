@@ -1,0 +1,90 @@
+{% extends 'assignment2_app/base.html' %}
+
+{% block title %}{{ title }} - Video Store Management{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h2>{{ title }}</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="{{ form.movie_title.id_for_label }}" class="form-label">{{ form.movie_title.label }}</label>
+                                {{ form.movie_title }}
+                                {% if form.movie_title.errors %}
+                                    <div class="text-danger">{{ form.movie_title.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.actor1_name.id_for_label }}" class="form-label">{{ form.actor1_name.label }}</label>
+                                {{ form.actor1_name }}
+                                {% if form.actor1_name.errors %}
+                                    <div class="text-danger">{{ form.actor1_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.actor2_name.id_for_label }}" class="form-label">{{ form.actor2_name.label }}</label>
+                                {{ form.actor2_name }}
+                                {% if form.actor2_name.errors %}
+                                    <div class="text-danger">{{ form.actor2_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.director_name.id_for_label }}" class="form-label">{{ form.director_name.label }}</label>
+                                {{ form.director_name }}
+                                {% if form.director_name.errors %}
+                                    <div class="text-danger">{{ form.director_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.movie_genre.id_for_label }}" class="form-label">{{ form.movie_genre.label }}</label>
+                                {{ form.movie_genre }}
+                                {% if form.movie_genre.errors %}
+                                    <div class="text-danger">{{ form.movie_genre.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.release_year.id_for_label }}" class="form-label">{{ form.release_year.label }}</label>
+                                {{ form.release_year }}
+                                {% if form.release_year.errors %}
+                                    <div class="text-danger">{{ form.release_year.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'video_list' %}" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save Video</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
