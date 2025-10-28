@@ -7,6 +7,18 @@ spec:
   selector:
     app: django-app
   ports:
-    - protocol: TCP
+    - name: http-1
+      protocol: TCP
       port: 80
       targetPort: 8000
+      nodePort: 30001
+    - name: http-2
+      protocol: TCP
+      port: 81
+      targetPort: 8000
+      nodePort: 30002
+    - name: http-3
+      protocol: TCP
+      port: 82
+      targetPort: 8000
+      nodePort: 30003
